@@ -8,7 +8,7 @@ Uses following dependencies
 - Cordova (https://cordova.apache.org/)
 - AngularJS (http://angularjs.org/)
 
-Sample App
+Demo
 ==========
 
 <img src="http://www.saifikram.com/Uploads/25022014_Home.png" width="222" height="307" />
