@@ -22,60 +22,49 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-       <!-- <link rel="stylesheet" type="text/css" href="css/index.css" />-->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+        <link href="css/index.css" rel="stylesheet" />
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
         <link href="css/bootstrap-misc.css" rel="stylesheet" />
-        <title>Hello World</title>
-        <script type="text/javascript" src="js/vendor/angular.min.js"></script>
-        <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>        
+        <link href="css/bootmetro.css" rel="stylesheet" />
+        <link href="css/google-code-prettify/prettify.css" rel="stylesheet" />
+        <title>TechCipher</title>
+        
+        <script type="text/javascript" src="js/vendor/angular.js"></script>
+        <script type="text/javascript" src="js/vendor/angular-route.js"></script>        
+        <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/google-code-prettify/prettify.js"></script>        
     </head>
     <body>
-        <!--<div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <div ng-app="tcApp">
+            <div style="align-content:center" class="bs-box" ng-controller="indexCtrl">
+                <table border="0" cellspacing="5px" width="100%">
+                    <tr>
+                        <td width="20px"><button type="button" class="btn btn btn-primary" ng-click="GoHome()" ng-class="homeBtnCss">Home</button></td>
+                        <td align="center">
+                            <img src="img/favicon.ico" />
+                            Tech Cipher 1.0 <span class="badge">beta {{BackBtnCss}}</span>
+                        </td>
+                        <td width="20px"><button type="button" class="btn btn btn-primary" onclick="window.history.back();" ng-class="backBtnCss">Back</button></td>
+                    </tr>
+                    <!--<tr>
+                        <td colspan="2">
+                            {{tcdevicePixelRatio}}
+                        </td>
+                    </tr>-->
+                </table>
             </div>
-        </div>-->
-
-        <!-- <div ng-app="myApp">
-            <div ng-controller="MyController">
-                {{appdata}}<br />
-                {{sections}}<br />
-                {{status}}
-            </div>
-        </div>-->
-        <!--<div ng-controller="MyController">
-                <ul class="nav nav-pills nav-stacked">
-                  <li ng-repeat="section in sections"><a href="#profile" data-toggle="tab">{{ section.Title }}</a></li>
-                </ul>
-            </div>-->
-        <div ng-app="myApp">
+            <div ng-view></div>
+           <!-- <hr />
             <div class="tabbable" ng-controller="sectionsCtrl">
-                <div style="align-content:center" class="bs-box">
-                    <table border="0" cellspacing="5px">
-                        <tr>
-                            <td>
-                                <img src="img/favicon.ico" />
-                            </td>
-                            <td>
-                                Tech Cipher 2013.9.27.51<span class="badge">beta</span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div ng-style="loadstyle">
-                    <span style="align-content:center">Loading Sections</span>
-                </div>
-                <div ng-style="datastyle">
-                    <sections sections="sections"></sections>
-                    <div style="padding: 10px">
-                         <div ng-view="" class="slide-right ng-animate"></div>
-                    </div>
-                </div>
-            </div>
+            <ul class="nav nav-pills nav-stacked">
+                <li ng-repeat="section in sections" ng-class="{active:section.selected}">
+                    <a href="" ng-click="showsection(sections, section)">{{section.caption}}</a>
+                </li>
+            </ul>
+            </div>-->
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -83,10 +72,19 @@
         <script type="text/javascript" src="app/app.js"></script>
         <!-- Directives -->  
         <script src="app/sections/sectionsElement.js"></script>
+        <script src="app/categories/categoriesElement.js"></script>
+        <script src="app/subcategories/subcategoriesElement.js"></script>
+        <script src="app/articles/articlesElement.js"></script>
+        <script src="app/article/articleElement.js"></script>
         <!-- Controllers -->    
         <script src="app/sections/sectionsCtrl.js"></script>
+        <script src="app/categories/categoriesCtrl.js"></script>
+        <script src="app/subcategories/subcategoriesCtrl.js"></script>
+        <script src="app/articles/articlesCtrl.js"></script>
+        <script src="app/article/articleCtrl.js"></script>
+        <script src="app/controllers/allCtrl.js"></script>
         <!-- Services -->
-        <script src="app/Services/dataService.js"></script>
+        <script src="app/services/dataService.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>

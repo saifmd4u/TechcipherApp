@@ -1,12 +1,13 @@
-﻿myApp.controller('sectionsCtrl', function ($scope, CordovaService, dataService) {
+﻿tcApp.controller('sectionsCtrl', function ($scope, CordovaService, dataService, $location, $rootScope) {
     CordovaService.ready.then(function () {
 
         $scope.loadstyle = { "display": "block" };
         $scope.datastyle = { "display": "none" };
-
         $scope.sections = [];
-        var sections = dataService.getAllSections();
-        sections.success(function (response) {
+        var sections = new Array();
+
+        var svcSections = dataService.getAllSections();
+        svcSections.success(function (response) {
             var r = response;
         })
         .error(function (data, status, headers, config) {
@@ -15,23 +16,28 @@
         .then(function (response) {
             var allsections = response.data;
 
-
             angular.forEach(allsections, function (section) {
                 var section = {
-                    name : section.Title,
+                    name: section.SectionId,
                     caption: section.Title,
                     selected: false
                 };
-                $scope.sections.push(section);
+                sections.push(section);
             });
 
-            angular.forEach($scope.sections, function (section) {
-                section.selected = false;
-            });
-            //$scope.sections[0].selected = true;
+            var section = {
+                name: 'About',
+                caption: 'About',
+                selected: false
+            };
+            sections.push(section);
 
             $scope.loadstyle = { "display": "none" };
             $scope.datastyle = { "display": "block" };
+
+            //alert("sections : " + sections.length);
+
+            $scope.sections = sections;
         });
     });
 });

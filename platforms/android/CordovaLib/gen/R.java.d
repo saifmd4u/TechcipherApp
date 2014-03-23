@@ -1,1 +1,1 @@
- : D:\GitHubWorking\TechcipherApp\platforms\android\CordovaLib\bin\AndroidManifest.xml \
+ : D:\nodejs\cordova\TechcipherApp\platforms\android\CordovaLib\bin\AndroidManifest.xml \

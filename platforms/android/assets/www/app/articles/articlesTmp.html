@@ -1,0 +1,8 @@
+﻿<ul class="nav nav-pills nav-stacked">
+    <li ng-repeat="article in articles" ng-class="article.bgColor" 
+        ng-mouseenter="mouseenter($event, article)" ng-mouseleave="mouseleave($event, article)">
+        <a href="" ng-click="showarticle(articles, article)" ng-class="article-style">
+            {{article.caption}}
+        </a>
+    </li>   
+</ul>

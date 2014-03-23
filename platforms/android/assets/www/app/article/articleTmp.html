@@ -1,0 +1,57 @@
+﻿<table border="0" width="100%">
+    <tr>
+        <td style="padding: 10px 10px 10px 10px">
+            <section>
+                <div class="page-header">
+                    <h4>Overview</h4>
+                </div>
+    
+                <div class="page-content">
+                    {{article.Overview}}
+                </div>
+            </section>
+            <section>
+                <div class="page-header">
+                    <h4>Description</h4>
+                </div>
+                <div class="page-content">
+                    <div ng-bind-html="Description()"></div>
+                </div>
+            </section>
+            <section>
+                <div class="page-header">
+                    <h4>Example</h4>
+                </div>
+                <div class="bs-docs-example">
+                    <span id="exampleCode2">   
+                        <div ng-bind-html="Example()" ng-class="prettyprint linenums"></div>
+                    </span>
+                </div>
+            </section>
+            <section>
+                <div class="page-header">
+                    <h4>References</h4>
+                </div>
+                <div class="page-content">
+                    <div ng-bind-html="References()"></div>
+                </div>
+            </section>
+            <section>
+                <div class="page-header">
+                    <h4>Developer Tools</h4>
+                </div>
+                <div class="page-content">
+                    <div ng-bind-html="DeveloperTools()"></div>
+                </div>
+            </section>
+            <section>
+                 <div class="page-header">
+                    <h4>Author</h4>
+                </div>
+                <div class="page-content">
+                    {{article.AuthorName}}
+                </div>
+            </section>
+         </td>
+    </tr>
+</table>

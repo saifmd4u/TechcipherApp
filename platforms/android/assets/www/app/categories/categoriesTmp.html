@@ -1,0 +1,9 @@
+﻿<ul class="nav nav-pills nav-stacked">
+    <li ng-repeat="category in categories" ng-class="category.bgColor" 
+        ng-mouseenter="mouseenter($event, category)" 
+        ng-mouseleave="mouseleave($event, category)">
+        <a href="" ng-click="showcategory(categories, category)" ng-class="category-style">
+            {{category.caption}}
+        </a>
+    </li>   
+</ul>

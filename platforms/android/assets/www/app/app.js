@@ -23,20 +23,63 @@
   }]);
 
 
-var myApp = angular.module('myApp', ['fsCordova']);
+var tcApp = angular.module('tcApp', ['fsCordova', 'ngRoute']);
 
-myApp.controller('MyController', function ($scope, CordovaService/*, myService*/) {
-    CordovaService.ready.then(function () {
-        // Cordova is ready
-        $scope.appdata = 'Cordova is ready';
+tcApp.config(function ($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('/Home', {
+            templateUrl: 'app/views/sections.html',
+            //controller: 'HomeCtrl'
+            controller: 'sectionsCtrl'
+        })
+        .when('/About', {
+            templateUrl: 'app/views/about.html',
+            controller: 'aboutCtrl'
+        })
+         .when('/Categories/:sectionid', {
+             templateUrl: 'app/views/categories.html',
+             controller: 'categoriesCtrl'
+         })
+         .when('/SubCategories/:categoryid', {
+             templateUrl: 'app/views/subcategories.html',
+             controller: 'subcategoriesCtrl'
+         })
+        .when('/SubCategory/:subcategoryid', {
+            templateUrl: 'app/views/subcategories.html',
+            controller: 'subcategoriesCtrl'
+        })
+        .when('/Articles/:subcategoryid', {
+            templateUrl: 'app/views/articles.html',
+            controller: 'articlesCtrl'
+        })
+        .when('/Article/:articleid', {
+            templateUrl: 'app/views/article.html',
+            controller: 'articleCtrl'
+        })
+    .otherwise({
+        redirectTo: '/Home'
+    });
+});
 
-        //myService.getAllSections()
-        //.success(function (sections) {
-        //    $scope.sections = sections;
-        //})
-        //.error(function (error) {
-        //    $scope.status = 'Unable to load customer data: ' + error.message;
-        //});
+tcApp.controller('indexCtrl', function ($scope, CordovaService, $location, $rootScope) {
+    $scope.GoHome = function () {
+        $location.path('/Home');
+    };
 
+    $scope.tcdevicePixelRatio = window.devicePixelRatio;
+
+    $scope.homeBtnCss = 'btnHide';
+    $scope.backBtnCss = 'btnHide';
+
+    $rootScope.$on('$locationChangeSuccess', function () {
+        //console.log('$locationChangeSuccess changed!', new Date());
+        if ($location.path() == '/Home') {
+            $scope.homeBtnCss = 'btnHide';
+            $scope.backBtnCss = 'btnHide';
+        }
+        else {
+            $scope.homeBtnCss = 'btnShow';
+            $scope.backBtnCss = 'btnShow';
+        }
     });
 });

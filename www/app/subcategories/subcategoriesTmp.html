@@ -1,0 +1,8 @@
+﻿<ul class="nav nav-pills nav-stacked">
+    <li ng-repeat="subcategory in subcategories" ng-class="subcategory.bgColor" 
+        ng-mouseenter="mouseenter($event, subcategory)" ng-mouseleave="mouseleave($event, subcategory)">
+        <a href="" ng-click="showsubcategory(subcategories, subcategory)" ng-class="subcategory-style">
+            {{subcategory.caption}}
+        </a>
+    </li>   
+</ul>
