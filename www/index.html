@@ -45,26 +45,13 @@
                         <td width="20px"><button type="button" class="btn btn btn-primary" ng-click="GoHome()" ng-class="homeBtnCss">Home</button></td>
                         <td align="center">
                             <img src="img/favicon.ico" />
-                            Tech Cipher 1.0 <span class="badge">beta {{BackBtnCss}}</span>
+                            TechCipher 1.0 <span class="badge">beta {{BackBtnCss}}</span>
                         </td>
                         <td width="20px"><button type="button" class="btn btn btn-primary" onclick="window.history.back();" ng-class="backBtnCss">Back</button></td>
                     </tr>
-                    <!--<tr>
-                        <td colspan="2">
-                            {{tcdevicePixelRatio}}
-                        </td>
-                    </tr>-->
                 </table>
             </div>
-            <div ng-view></div>
-           <!-- <hr />
-            <div class="tabbable" ng-controller="sectionsCtrl">
-            <ul class="nav nav-pills nav-stacked">
-                <li ng-repeat="section in sections" ng-class="{active:section.selected}">
-                    <a href="" ng-click="showsection(sections, section)">{{section.caption}}</a>
-                </li>
-            </ul>
-            </div>-->
+            <div ng-view></div>         
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
