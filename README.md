@@ -11,7 +11,7 @@ Uses following dependencies
 Demo
 ==========
 
-<img src="http://www.saifikram.com/Uploads/25022014_Home.png" width="222" height="307" />
+<img src="http://www.saifikram.com/Uploads/tcapp_screen3.jpg" width="222" height="307" border="5" />
 
 for code walk through go to <a href="http://www.saifikram.com/2014/02/building-mobile-app-with-cordova-and-angularjs">
 "Building Mobile App with Cordova, Bootstrap and AngularJS"</a>
